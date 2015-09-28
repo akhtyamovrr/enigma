@@ -1,8 +1,5 @@
 package com.arr.engine;
 
-import com.arr.Constants;
-import com.arr.generate.ArrayGenerator;
-
 /**
  * Created by ARR on 27.09.2015.
  */

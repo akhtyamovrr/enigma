@@ -1,6 +1,6 @@
 package com.arr;
 
-import com.arr.generate.ArrayGenerator;
+import com.arr.engine.ArrayGenerator;
 
 import java.lang.*;
 import java.io.*;

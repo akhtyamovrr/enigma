@@ -32,7 +32,7 @@ public class AbstractRotor {
         return characters.get(index);
     }
 
-    public int getByValue(Character character) {
-        return characters.indexOf(character);
+    public char getByValue(Character character) {
+        return (char)characters.indexOf(character);
     }
 }

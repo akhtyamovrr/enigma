@@ -1,7 +1,5 @@
 package com.arr.engine;
 
-import com.arr.generate.ArrayGenerator;
-
 /**
  * Created by ARR on 27.09.2015.
  */
@@ -13,8 +11,29 @@ public class RotorsSystem {
     public RotorsSystem() {
     }
 
-    public int encrypt(Character character) {
+    public Character forward(Character character) {
 
-        return 0;
+        Character current;
+        current = leftRotor.getByIndex((int)character);
+        current = rotor.getByIndex((int)current);
+        current = rightRotor.getByIndex((int)current);
+
+        return current;
+    }
+
+    public char backward(Character character) {
+        char current;
+        current = rightRotor.getByValue(character);
+        current = rotor.getByValue(current);
+        current = leftRotor.getByValue(current);
+        return current;
+    }
+
+    public void rotate() {
+        if (leftRotor.rotate()) {
+            if (rotor.rotate()) {
+                rightRotor.rotate();
+            }
+        }
     }
 }
