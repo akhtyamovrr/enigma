@@ -14,7 +14,8 @@ public class Reflector extends AbstractRotor {
     public Reflector() {
         List<Character> characters = Lists.newArrayListWithCapacity(256);
         for (int i = 0; i < Constants.SIZE; i++) {
-            characters.set(i,(char)(Constants.SIZE - i - 1));
+            characters.add((char)i);
         }
+        this.setCharacters(characters);
     }
 }

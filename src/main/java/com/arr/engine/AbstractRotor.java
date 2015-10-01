@@ -29,10 +29,10 @@ public class AbstractRotor {
     }
 
     public Character getByIndex(int index) {
-        return characters.get(index);
+        return characters.get((index + currentOffset) % Constants.SIZE);
     }
 
-    public char getByValue(Character character) {
-        return (char)characters.indexOf(character);
+    public int getByValue(Character character) {
+        return characters.indexOf(character);
     }
 }

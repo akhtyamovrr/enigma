@@ -21,11 +21,11 @@ public class RotorsSystem {
         return current;
     }
 
-    public char backward(Character character) {
-        char current;
+    public int backward(Character character) {
+        int current;
         current = rightRotor.getByValue(character);
-        current = rotor.getByValue(current);
-        current = leftRotor.getByValue(current);
+        current = rotor.getByValue((char)current);
+        current = leftRotor.getByValue((char)current);
         return current;
     }
 
@@ -35,5 +35,11 @@ public class RotorsSystem {
                 rightRotor.rotate();
             }
         }
+    }
+
+    public void reset() {
+        leftRotor.reset();
+        rotor.reset();
+        rightRotor.reset();
     }
 }

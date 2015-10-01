@@ -2,7 +2,9 @@ package com.arr.logic;
 
 import com.google.common.collect.Lists;
 
-import java.io.Reader;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,19 +13,31 @@ import java.util.Scanner;
  */
 public class DataProcessing {
 
-    public static List<Character> readCharacters(String fileName) {
+    public static List<Character> readCharacters(String fileName) throws IOException {
 
-        Scanner scanner = new Scanner(fileName);
-        StringBuilder stringBuilder = new StringBuilder();
-        while(scanner.hasNext()) {
-            stringBuilder.append(scanner.next());
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        StringBuffer sb = new StringBuffer();
+        LinkedList<Character> characters = Lists.newLinkedList();
+        int symbol = br.read();
+        while (symbol >= 0) {
+            characters.add((char)symbol);
+            symbol = br.read();
         }
-
-        String str = stringBuilder.toString();
-        List<Character> result = Lists.newArrayListWithCapacity(str.length());
-        for (Character character: str.toCharArray()) {
+        return characters;
+        /*String readString = sb.toString();
+        List result = Lists.newArrayListWithCapacity(readString.length());
+        for (Character character : readString.toCharArray()) {
             result.add(character);
         }
-        return result;
+        return result;*/
+    }
+
+    public static void writeCharactersFile(List<Character> characters, String fileName) throws FileNotFoundException, UnsupportedEncodingException {
+
+        PrintWriter printWriter = new PrintWriter(fileName, StandardCharsets.ISO_8859_1.toString());
+        for (Character character : characters) {
+            printWriter.print(character);
+        }
+        printWriter.flush();
     }
 }

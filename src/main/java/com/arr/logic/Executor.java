@@ -2,6 +2,7 @@ package com.arr.logic;
 
 import com.arr.engine.Engine;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -9,9 +10,18 @@ import java.util.List;
  */
 public class Executor {
 
-    public List<Character> encrypt(String fileName) {
+    private static Engine engine = new Engine();
+
+    public static List<Character> encrypt(String fileName) throws IOException {
         List<Character> characters = DataProcessing.readCharacters(fileName);
-        Engine engine = new Engine();
         return engine.encrypt(characters);
+    }
+
+    public static void resetEngine() {
+        engine.reset();
+    }
+
+    public static List<Character> decrypt(List<Character> characters) {
+        return engine.decrypt(characters);
     }
 }

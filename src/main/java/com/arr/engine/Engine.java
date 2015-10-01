@@ -19,10 +19,25 @@ public class Engine {
         for (Character character : input) {
             encryptedChar = rotorsSystem.forward(character);
             encryptedChar = reflector.getByIndex(Constants.SIZE - encryptedChar);
-            encryptedChar = rotorsSystem.backward(encryptedChar);
             result.add(encryptedChar);
             rotorsSystem.rotate();
         }
         return result;
+    }
+
+    public List<Character> decrypt(List<Character> input) {
+        List<Character> result = Lists.newArrayListWithExpectedSize(input.size());
+        int index;
+        for (Character character : input) {
+            index = reflector.getByValue((char)(Constants.SIZE - character));
+            index = rotorsSystem.backward((char)index);
+            result.add((char)index);
+            rotorsSystem.rotate();
+        }
+        return result;
+    }
+
+    public void reset() {
+        rotorsSystem.reset();
     }
 }
