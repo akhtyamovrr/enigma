@@ -1,7 +1,5 @@
 package com.arr.engine;
 
-import com.arr.Constants;
-
 /**
  * Created by ARR on 27.09.2015.
  */
@@ -13,7 +11,7 @@ public class Rotor extends AbstractRotor {
 
     /**
      *
-     * @return true if full cicle was rotated
+     * @return true if full circle was rotated
      */
     public boolean rotate() {
         setCurrentOffset(getCurrentOffset() + 1);

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by ARR on 27.09.2015.
  */
-public class AbstractRotor {
+class AbstractRotor {
 
     private List<Character> characters;
     private int currentOffset = 0;
@@ -33,6 +33,7 @@ public class AbstractRotor {
     }
 
     public int getByValue(Character character) {
-        return characters.indexOf(character);
+        int result = (characters.indexOf(character) - currentOffset) % Constants.SIZE;
+        return result < 0 ? result + Constants.SIZE : result;
     }
 }

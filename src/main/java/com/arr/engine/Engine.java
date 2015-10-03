@@ -14,11 +14,11 @@ public class Engine {
     private Reflector reflector = new Reflector();
 
     public List<Character> encrypt(List<Character> input) {
-        List<Character> result = Lists.newArrayListWithExpectedSize(input.size());
+        List<Character> result = Lists.newArrayListWithCapacity(input.size());
         Character encryptedChar;
         for (Character character : input) {
             encryptedChar = rotorsSystem.forward(character);
-            encryptedChar = reflector.getByIndex(Constants.SIZE - encryptedChar);
+            encryptedChar = reflector.getByIndex(Constants.SIZE - encryptedChar - 1);
             result.add(encryptedChar);
             rotorsSystem.rotate();
         }
@@ -26,12 +26,12 @@ public class Engine {
     }
 
     public List<Character> decrypt(List<Character> input) {
-        List<Character> result = Lists.newArrayListWithExpectedSize(input.size());
+        List<Character> result = Lists.newArrayListWithCapacity(input.size());
         int index;
         for (Character character : input) {
-            index = reflector.getByValue((char)(Constants.SIZE - character));
+            index = reflector.getByValue((char) (Constants.SIZE - character - 1));
             index = rotorsSystem.backward((char)index);
-            result.add((char)index);
+            result.add((char) index);
             rotorsSystem.rotate();
         }
         return result;
