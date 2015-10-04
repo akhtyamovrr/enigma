@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.Random;
+
 import com.arr.Constants;
 
 /**
@@ -16,7 +16,7 @@ import com.arr.Constants;
 
 public class ArrayGenerator {
 
-    final private static MyRandom randomizer = new MyRandom(new Random().nextInt());
+    final private static Random randomizer = new Random(new java.util.Random().nextInt());
 
     public static List<Character> getRandomArray() {
         List<Character> alphabet = Lists.newArrayListWithCapacity(256);
@@ -46,14 +46,14 @@ public class ArrayGenerator {
     }
 }
 
-class MyRandom {
+class Random {
 
-    private int a = 106;
-    private int b = 1283;
-    private int m = 6075;
+    private final int a = 106;
+    private final int b = 1283;
+    private final int m = 6075;
     private int previous;
 
-    public MyRandom(int start) {
+    public Random(int start) {
         previous = start;
     }
 

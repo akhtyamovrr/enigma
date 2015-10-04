@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class Engine {
 
-    private RotorsSystem rotorsSystem = new RotorsSystem();
-    private Reflector reflector = new Reflector();
+    private final RotorsSystem rotorsSystem = new RotorsSystem();
+    private final Reflector reflector = new Reflector();
 
     public List<Character> encrypt(List<Character> input) {
         List<Character> result = Lists.newArrayListWithCapacity(input.size());

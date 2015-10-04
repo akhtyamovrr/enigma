@@ -4,7 +4,6 @@ import com.arr.demo.Demo;
 
 import java.lang.*;
 import java.io.*;
-import java.util.List;
 
 public class Main {
 

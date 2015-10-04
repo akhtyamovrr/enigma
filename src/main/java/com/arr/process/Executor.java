@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Executor {
 
-    private static Engine engine = new Engine();
+    private static final Engine engine = new Engine();
 
     public static List<Character> encrypt(String fileName) throws IOException {
         List<Character> characters = DataProcessing.readCharacters(fileName);

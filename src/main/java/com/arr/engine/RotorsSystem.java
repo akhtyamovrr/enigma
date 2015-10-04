@@ -4,9 +4,9 @@ package com.arr.engine;
  * Created by ARR on 27.09.2015.
  */
 public class RotorsSystem {
-    private Rotor leftRotor = new Rotor();
-    private Rotor rotor = new Rotor();
-    private Rotor rightRotor = new Rotor();
+    private final Rotor leftRotor = new Rotor();
+    private final Rotor rotor = new Rotor();
+    private final Rotor rightRotor = new Rotor();
 
     public RotorsSystem() {
     }

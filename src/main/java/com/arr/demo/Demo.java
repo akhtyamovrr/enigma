@@ -29,7 +29,7 @@ public class Demo {
         executeExample("same_character.txt");
         System.out.println("Done\n");
 
-        // Atcitle
+        // Artcitle
         System.out.println("Article execution");
         executeExample("article.txt");
         System.out.println("Done\n");
