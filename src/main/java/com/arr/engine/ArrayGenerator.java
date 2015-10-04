@@ -58,6 +58,7 @@ class Random {
     }
 
     public int nextInt() {
-        return previous = (a * previous + b) % m;
+        previous = (a * previous + b) % m;
+        return previous < 0 ? m + previous : previous;
     }
 }
