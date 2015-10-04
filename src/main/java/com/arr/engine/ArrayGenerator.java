@@ -11,12 +11,12 @@ import java.util.Random;
 import com.arr.Constants;
 
 /**
- * ISO_8859_1 characters generator
+ * ISO_8859_1 characters array generator
  */
 
 public class ArrayGenerator {
 
-    final private static Random randomizer = new Random();
+    final private static MyRandom randomizer = new MyRandom(new Random().nextInt());
 
     public static List<Character> getRandomArray() {
         List<Character> alphabet = Lists.newArrayListWithCapacity(256);
@@ -28,7 +28,7 @@ public class ArrayGenerator {
         int number;
         int idx;
         for (int i = 0; i < Constants.SIZE; i++) {
-            idx = randomizer.nextInt(indexArray.size());
+            idx = randomizer.nextInt() % indexArray.size();
             number = indexArray.get(idx);
             alphabet.add((char) number);
             indexArray.remove(idx);
@@ -43,5 +43,21 @@ public class ArrayGenerator {
             printWriter.print(character);
         }
         printWriter.flush();
+    }
+}
+
+class MyRandom {
+
+    private int a = 106;
+    private int b = 1283;
+    private int m = 6075;
+    private int previous;
+
+    public MyRandom(int start) {
+        previous = start;
+    }
+
+    public int nextInt() {
+        return previous = (a * previous + b) % m;
     }
 }

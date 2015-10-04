@@ -1,4 +1,4 @@
-package com.arr.logic;
+package com.arr.process;
 
 import com.google.common.collect.Lists;
 
