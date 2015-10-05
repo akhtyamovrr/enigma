@@ -18,8 +18,8 @@ import com.arr.Constants;
 
 public class ArrayGenerator {
 
-    final private static int MOD = 100000;
-    final private static Random randomizer = new Random((int)(System.currentTimeMillis() % MOD));
+    final private static int RANGE = 100000;
+    final private static Random randomizer = new Random((int)(System.currentTimeMillis() % RANGE));
     public static List<Character> getRandomArray() {
         List<Character> alphabet = Lists.newArrayListWithCapacity(256);
         List<Integer> indexArray = Lists.newArrayListWithCapacity(256);
