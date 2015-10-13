@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.List;
 
 import com.arr.Constants;
@@ -16,8 +18,8 @@ import com.arr.Constants;
 
 public class ArrayGenerator {
 
-    final private static Random randomizer = new Random(new java.util.Random().nextInt());
-
+    final private static int RANGE = 100000;
+    final private static Random randomizer = new Random((int)(System.currentTimeMillis() % RANGE));
     public static List<Character> getRandomArray() {
         List<Character> alphabet = Lists.newArrayListWithCapacity(256);
         List<Integer> indexArray = Lists.newArrayListWithCapacity(256);
@@ -58,6 +60,7 @@ class Random {
     }
 
     public int nextInt() {
-        return previous = (a * previous + b) % m;
+        previous = (a * previous + b) % m;
+        return previous < 0 ? m + previous : previous;
     }
 }
