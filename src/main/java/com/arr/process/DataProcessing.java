@@ -13,7 +13,7 @@ import java.util.List;
 public class DataProcessing {
 
     public static List<Character> readCharacters(String fileName) throws IOException {
-        LinkedList<Character> characters = Lists.newLinkedList();
+        List<Character> characters = Lists.newLinkedList();
         FileInputStream fis = new FileInputStream(fileName);
         InputStreamReader reader = new InputStreamReader(fis, StandardCharsets.ISO_8859_1.toString());
 
